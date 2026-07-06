@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shruti ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+}
+
+.container{
+text-align:center;
+color:white;
+padding:25px;
+max-width:700px;
+animation:fadeIn 2s;
+z-index:2;
+}
+
+h1{
+font-size:50px;
+font-family:'Pacifico',cursive;
+margin-bottom:15px;
+animation:bounce 2s infinite;
+}
+
+h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+background:white;
+color:#ff4081;
+font-weight:bold;
+transition:.3s;
+box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+bottom:-20px;
+color:white;
+font-size:22px;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+h1{
+font-size:36px;
+}
+
+h2{
+font-size:22px;
+}
+
+p{
+font-size:16px;
+}
+
+button{
+font-size:16px;
+padding:13px 28px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday 🎉</h1>
+
+<h2>Dear Shruti ❤️</h2>
+
+<p>
+Wishing the happiest birthday to my amazing bestieeeeeeeeeeeeee! 🌸<br><br>
+
+May your smile always shine brighter than the stars, your dreams come true, and every new day bring happiness, success, and endless laughter.
+
+Thank you for being such a wonderful friend. 💖
+
+Stay happy, stay blessed, and keep being the incredible person you are.
+
+Happy Birthday once again! 🎂🎈✨
+</p>
+
+<button onclick="blastConfetti()">🎁 Celebrate!</button>
+
+</div>
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+// Initial Confetti
+
+function fire(){
+
+confetti({
+particleCount:180,
+spread:180,
+origin:{y:0.6}
+});
+
+}
+
+window.onload=()=>{
+fire();
+
+setInterval(()=>{
+confetti({
+particleCount:30,
+spread:90,
+origin:{
+x:Math.random(),
+y:Math.random()-0.2
+}
+});
+},1800);
+}
+
+// Button Confetti
+
+function blastConfetti(){
+
+var duration=3000;
+var end=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+particleCount:8,
+angle:60,
+spread:70,
+origin:{x:0}
+});
+
+confetti({
+particleCount:8,
+angle:120,
+spread:70,
+origin:{x:1}
+});
+
+if(Date.now()<end){
+requestAnimationFrame(frame);
+}
+
+})();
+
+}
+
+// Floating Hearts
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},9000);
+
+}
+
+setInterval(createHeart,350);
+
+</script>
+
+</body>
+</html>
